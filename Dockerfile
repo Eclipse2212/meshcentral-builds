@@ -1,11 +1,10 @@
-FROM node:14-slim
+FROM node:slim
+
 RUN apt-get update && apt-get -y install libcap2-bin \
-  && rm -rf /var/lib/apt/lists/* \
   && setcap cap_net_bind_service=+ep '/usr/local/bin/node'
-RUN mkdir -p /home/node/meshcentral/node_modules && chown -R node:node /home/node/meshcentral
+RUN mkdir -p /meshcentral/node_modules && chown -R node:node /meshcentral
 USER node
-WORKDIR /home/node/meshcentral
-COPY package*.json ./
-RUN npm install meshcentral@0.8.66
+WORKDIR /meshcentral
+RUN npm install --no-fund --no-audit --prefix /meshcentral meshcentral
 
 ENTRYPOINT node ./node_modules/meshcentral/meshcentral.js

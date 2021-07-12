@@ -1,10 +1,14 @@
 # meshcentral-builds
 Docker container based on https://github.com/Ylianst/MeshCentral
+Forked from: https://github.com/uldiseihenbergs/meshcentral-builds
+
+
+Container is based on node:slim
 
 Volumes required for persistant storage:
-- home/node/meshcentral/meshcentral-files
-- home/node/meshcentral/meshcentral-data
+- /meshcentral/meshcentral-files
+- /meshcentral/meshcentral-data
 
 Optional volumes:
-- home/node/meshcentral/meshcentral-backup
-- home/node/meshcentral/meshcentral-web
+- /meshcentral/meshcentral-backup
+- /meshcentral/meshcentral-web
